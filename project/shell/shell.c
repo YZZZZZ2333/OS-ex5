@@ -43,7 +43,7 @@ void help(){
     printf("%-10s - %s\n","rmdir","删除文件夹");
     printf("%-10s - %s\n","open","打开文件");
     printf("%-10s - %s\n","close","关闭文件");
-    printf("%-10s - %s\n","write","写文件 [id][w-截断写 a-追加写 c-覆盖写]");
+    printf("%-10s - %s\n","write","写文件 [id][w-覆盖写 a-截断写 c-追加写]");
     printf("%-10s - %s\n","read","读文件 [id]");
     printf("%-10s - %s\n","opl","当前正在被使用的文件列表");
     printf("%-10s - %s\n","block0","引导块信息");

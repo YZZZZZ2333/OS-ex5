@@ -23,7 +23,7 @@ int writeToDisk(FILE* DISK,void *ptr,int size,int base,long offset){
     else
         fseek(DISK,base+offset,SEEK_SET);
     fwrite(ptr,size,1,DISK);
-    printf("write size:%d blocknum:%d offset:%ld\n",size, (base/BLOCK_SIZE),(offset/FCB_SIZE));
+    //printf("write size:%d blocknum:%d offset:%ld\n",size, (base/BLOCK_SIZE),(offset/FCB_SIZE));
     return 0;
 }
 
@@ -33,7 +33,7 @@ int readFromDisk(FILE* DISK,void *buff,int size,int base,long offset){
     else
         fseek(DISK,base+offset,SEEK_SET);
     fread(buff,size,1,DISK);
-    printf("read size:%d blocknum:%d offset:%ld\n",size, (base/BLOCK_SIZE),(offset/FCB_SIZE));
+    //printf("read size:%d blocknum:%d offset:%ld\n",size, (base/BLOCK_SIZE),(offset/FCB_SIZE));
     return 0;
 }
 

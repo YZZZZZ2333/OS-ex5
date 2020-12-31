@@ -297,7 +297,7 @@ void my_ls(){
         time = Fnode->fcb_entry.time;
         printf("%-12s %-10s %4d/%02d/%02d %02d:%02d:%02d  %-6d\n",Fnode->fcb_entry.name,
         type[Fnode->fcb_entry.type],getYear(date),getMonth(date),getDay(date),
-        getHour(date,time),getMinute(time),getSecond(time),Fnode->fcb_entry.length);
+        getHour(date,time),getMinute(time),getSecond(time),(Fnode->fcb_entry.length)-1);
     }
 }
 
