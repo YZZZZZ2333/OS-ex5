@@ -17,7 +17,7 @@ extern int FCB_ITEM_NUM;
 void format(){//文件系统格式化
 //清除所有数据
     rewind(DISK);
-    int buff[1024]={0};
+    int buff[102400]={0};
     for (int i=0;i<BLOCK_SIZE;i++)
         fwrite(buff,sizeof(buff),1,DISK);
 //引导块 BLOCK0
@@ -53,8 +53,10 @@ void format(){//文件系统格式化
     initFCBBlock(6,6);
 //修改对应FAT表
     fi.item = END_OF_FILE;
-    for(int i=0;i<5;i++)
+    for(int i=0;i<7;i++)
         FAT1[i].item=USED;
+    for (int i=7;i<BLOCK_SIZE;i++)
+        FAT1[i].item=FREE;
     rewriteFAT();
 }
 
@@ -613,8 +615,8 @@ int my_write(int fd,int *sumlen,char wstyle){
             //修改对应FCB
                 changeFCB(uopenlist[fd].fcb,uopenlist[fd].blocknum,uopenlist[fd].offset_in_block);
             //文件结尾
-                FAT1[blocknum].item=END_OF_FILE;
-                FAT2[blocknum].item=END_OF_FILE;
+                //FAT1[blocknum].item=END_OF_FILE;
+                //FAT2[blocknum].item=END_OF_FILE;
                 rewriteFAT();
                 return 0; 
             }else if(wstyle=='c'){
